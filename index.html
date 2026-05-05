@@ -19,7 +19,6 @@
         overflow-x: hidden;
     }
 
-    /* ── BOOT SCREEN ───────────────────────────────────────────── */
     #boot-screen {
         position: fixed; inset: 0;
         background: #050505;
@@ -70,10 +69,8 @@
     }
     @keyframes blink { 50% { opacity: 0; } }
 
-    /* ── MAIN APP ──────────────────────────────────────────────── */
     #app { display: none; min-height: 100vh; }
 
-    /* ── TOP NAV ───────────────────────────────────────────────── */
     #nav {
         position: sticky; top: 0; z-index: 100;
         background: #0a0a0a;
@@ -119,7 +116,6 @@
     .nav-btn:hover { color: #fff; }
     .nav-btn.active { color: #ff3333; border-bottom-color: #ff3333; }
 
-    /* ── CONTENT AREA ─────────────────────────────────────────── */
     .section {
         display: none;
         max-width: 980px;
@@ -130,7 +126,6 @@
     .section.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
-    /* ── TYPOGRAPHY ──────────────────────────────────────────── */
     .sec-title {
         font-size: 11px;
         color: #ff0000;
@@ -156,7 +151,6 @@
     p { color: #ccc; font-size: 14px; line-height: 1.8; margin-bottom: 14px; }
     p strong { color: #ff6666; }
 
-    /* ── TERM CARDS ──────────────────────────────────────────── */
     .term-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
 
     .term-card {
@@ -195,7 +189,6 @@
     }
     .term-card.open .term-card-body { display: block; }
 
-    /* ── BRANCH MAP ──────────────────────────────────────────── */
     .branch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
 
     .branch-node {
@@ -243,7 +236,6 @@
         color: #ff6666;
     }
 
-    /* ── TOOLKIT ─────────────────────────────────────────────── */
     .toolkit-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
     .tf-btn {
         background: #0d0000;
@@ -291,7 +283,6 @@
     }
     .tc-link:hover { color: #ff6666; }
 
-    /* ── CASE STUDIES ────────────────────────────────────────── */
     .case-list { display: flex; flex-direction: column; gap: 20px; }
 
     .case-card {
@@ -345,7 +336,6 @@
     .cs-label { font-size: 11px; color: #ff4444; letter-spacing: 1px; margin-bottom: 4px; }
     .cs-text { font-size: 13px; color: #bbb; line-height: 1.7; }
 
-    /* ── CYBER HYGIENE ───────────────────────────────────────── */
     .hygiene-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 32px; }
 
     .hyg-block {
@@ -392,7 +382,6 @@
     }
     .checklist li.checked .check-box { background: #ff0000; border-color: #ff0000; color: #000; }
 
-    /* ── STATUS BAR ──────────────────────────────────────────── */
     #status-bar {
         position: fixed; bottom: 0; left: 0; right: 0;
         background: #0a0000;
@@ -407,7 +396,6 @@
     #status-bar span { color: #660000; }
     #status-time { color: #550000; }
 
-    /* ── SCAN LINE OVERLAY ───────────────────────────────────── */
     #scanlines {
         position: fixed; inset: 0;
         background: repeating-linear-gradient(
@@ -444,10 +432,8 @@
 </head>
 <body>
 
-<!-- Scan-line overlay -->
 <div id="scanlines"></div>
 
-<!-- ═══════════════════════════════════ BOOT SCREEN ═════════════════════════════════════ -->
 <div id="boot-screen">
 <div class="logo-container">
                                                                                      ╔══════════════════════════════╗
@@ -479,7 +465,6 @@
   <div id="boot-log"></div>
   <div id="boot-prompt">[ PRESS ANY KEY TO INITIALIZE CONSOLE ]_</div>
 
-  <!-- Interactive input area (shown after boot log finishes) -->
   <div id="boot-input-area" style="display:none;margin-top:18px;text-align:center;">
     <div id="boot-input-line" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#ff3333;">
       <span style="color:#660000;">ENTER COMMAND:</span>
@@ -494,7 +479,6 @@
     <div id="boot-cmd-error" style="font-size:11px;color:#440000;margin-top:8px;height:14px;"></div>
   </div>
 
-  <!-- Disclaimer — quiet, at the bottom -->
   <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
               font-size:10px;color:#2a0000;letter-spacing:0.5px;white-space:nowrap;text-align:center;
               font-family:'Courier New',monospace;">
@@ -503,10 +487,8 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════ MAIN APP ════════════════════════════════════════ -->
 <div id="app">
 
-  <!-- NAV -->
   <nav id="nav">
     <div class="nav-brand" id="nav-brand" title="Вернуться в главное меню">SANWXX4::v1.2</div>
     <button class="nav-btn active" data-sec="s1">[1] TERMINOLOGY</button>
@@ -516,7 +498,6 @@
     <button class="nav-btn" data-sec="s5">[5] CYBER_HYGIENE</button>
   </nav>
 
-  <!-- ── SECTION 1: TERMINOLOGY ── -->
   <div id="s1" class="section active">
     <div class="sec-title">// MODULE_01</div>
     <div class="sec-heading">TERMINOLOGY &amp; <span>FUNDAMENTALS</span></div>
@@ -531,7 +512,6 @@
     <div class="term-grid" id="term-grid"></div>
   </div>
 
-  <!-- ── SECTION 2: BRANCHES ── -->
   <div id="s2" class="section">
     <div class="sec-title">// MODULE_02</div>
     <div class="sec-heading">BRANCHES <span>&amp; NODES</span></div>
@@ -540,7 +520,6 @@
     <div class="branch-grid" id="branch-grid"></div>
   </div>
 
-  <!-- ── SECTION 3: TOOLKIT ── -->
   <div id="s3" class="section">
     <div class="sec-title">// MODULE_03</div>
     <div class="sec-heading">TOOL<span>KIT</span></div>
@@ -550,7 +529,6 @@
     <div class="tool-grid" id="tool-grid"></div>
   </div>
 
-  <!-- ── SECTION 4: CASE STUDIES ── -->
   <div id="s4" class="section">
     <div class="sec-title">// MODULE_04</div>
     <div class="sec-heading">CASE <span>STUDIES</span></div>
@@ -559,7 +537,6 @@
     <div class="case-list" id="case-list"></div>
   </div>
 
-  <!-- ── SECTION 5: CYBER HYGIENE ── -->
   <div id="s5" class="section">
     <div class="sec-title">// MODULE_05</div>
     <div class="sec-heading">CYBER_<span>HYGIENE</span></div>
@@ -573,9 +550,8 @@
     <ul class="checklist" id="checklist"></ul>
   </div>
 
-</div><!-- /app -->
+</div>
 
-<!-- STATUS BAR -->
 <div id="status-bar">
   <span>SANWXX4::OSINT_CONSOLE</span>
   <span id="status-time"></span>
@@ -583,9 +559,6 @@
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════
-// DATA
-// ═══════════════════════════════════════════════════════
 const TERMS = [
   { t:'OSINT', d:'Open Source Intelligence — разведка на основе открытых источников. Сбор и анализ данных, доступных без взлома систем и нарушения законодательства.' },
   { t:'Верификация', d:'Процесс проверки достоверности информации через несколько независимых источников. Правило трёх источников — минимальный стандарт.' },
@@ -770,9 +743,6 @@ const CHECKLIST = [
   'Проверена актуальность юрисдикционных ограничений (152-ФЗ)',
 ];
 
-// ═══════════════════════════════════════════════════════
-// BOOT SEQUENCE
-// ═══════════════════════════════════════════════════════
 const bootLines = [
   'INITIALIZING SANWXX4 CONSOLE...',
   'LOADING OSINT_MODULES... [████████████████] 100%',
@@ -789,13 +759,11 @@ const bootInputArea = document.getElementById('boot-input-area');
 const bootCmd = document.getElementById('boot-cmd');
 const bootCmdError = document.getElementById('boot-cmd-error');
 
-// Map command → section id
 const CMD_MAP = { '1':'s1', '2':'s2', '3':'s3', '4':'s4', '5':'s5' };
 
 function showNextLine() {
   if (lineIdx >= bootLines.length) {
     bootPrompt.style.display = 'block';
-    // Show interactive input after a short delay
     setTimeout(() => {
       bootPrompt.style.display = 'none';
       bootInputArea.style.display = 'block';
@@ -815,7 +783,6 @@ function showNextLine() {
 
 function launchApp(targetSec) {
   const sec = targetSec || 's1';
-  // Activate the right nav btn and section
   document.querySelectorAll('.nav-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.sec === sec);
   });
@@ -850,13 +817,11 @@ function handleBootCmd(val) {
   }
 }
 
-// Listen for Enter key and single-digit shortcut
 bootCmd.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') { handleBootCmd(bootCmd.value); return; }
 });
 bootCmd.addEventListener('input', () => {
   const v = bootCmd.value.trim();
-  // Single digit 1-5 fires immediately
   if (['1','2','3','4','5'].includes(v)) { handleBootCmd(v); }
 });
 
@@ -886,9 +851,6 @@ function returnToMenu() {
 
 setTimeout(showNextLine, 1200);
 
-// ═══════════════════════════════════════════════════════
-// NAV
-// ═══════════════════════════════════════════════════════
 document.querySelectorAll('.nav-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -900,9 +862,6 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
 
 document.getElementById('nav-brand').addEventListener('click', returnToMenu);
 
-// ═══════════════════════════════════════════════════════
-// SECTION 1: TERMS
-// ═══════════════════════════════════════════════════════
 const tg = document.getElementById('term-grid');
 TERMS.forEach(item => {
   const card = document.createElement('div');
@@ -912,9 +871,6 @@ TERMS.forEach(item => {
   tg.appendChild(card);
 });
 
-// ═══════════════════════════════════════════════════════
-// SECTION 2: BRANCHES
-// ═══════════════════════════════════════════════════════
 const bg = document.getElementById('branch-grid');
 BRANCHES.forEach(br => {
   const node = document.createElement('div');
@@ -934,9 +890,6 @@ BRANCHES.forEach(br => {
   bg.appendChild(node);
 });
 
-// ═══════════════════════════════════════════════════════
-// SECTION 3: TOOLKIT
-// ═══════════════════════════════════════════════════════
 const cats = ['ВСЕ', ...new Set(TOOLS.map(t => t.cat))];
 const filterDiv = document.getElementById('toolkit-filter');
 const toolGrid = document.getElementById('tool-grid');
@@ -971,9 +924,6 @@ TOOLS.forEach(tool => {
   toolGrid.appendChild(card);
 });
 
-// ═══════════════════════════════════════════════════════
-// SECTION 4: CASES
-// ═══════════════════════════════════════════════════════
 const cl = document.getElementById('case-list');
 CASES.forEach(c => {
   const card = document.createElement('div');
@@ -998,9 +948,6 @@ CASES.forEach(c => {
   cl.appendChild(card);
 });
 
-// ═══════════════════════════════════════════════════════
-// SECTION 5: HYGIENE
-// ═══════════════════════════════════════════════════════
 const hg = document.getElementById('hygiene-grid');
 HYGIENE.forEach(block => {
   const div = document.createElement('div');
@@ -1021,9 +968,6 @@ CHECKLIST.forEach(item => {
   checkList.appendChild(li);
 });
 
-// ═══════════════════════════════════════════════════════
-// STATUS BAR CLOCK
-// ═══════════════════════════════════════════════════════
 function updateClock() {
   const now = new Date();
   document.getElementById('status-time').textContent =
